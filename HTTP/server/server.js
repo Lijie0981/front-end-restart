@@ -6,12 +6,16 @@ const srv = http.createServer((req, res) => {
     console.log("path1: " + path)
     if (path == "/") {
         path = "/public/index.html";
-        sendFile(res, path);
+        let header = {
+            'Content-type': "text/html",
+            'Cache-control':'max-age=200000'
+        };
+        sendFile(res, path,301,header);
     }else if(path == "/script.js"){
         path = "/public/script.js";
         let header = {
             'Content-type': "text/javascript",
-            'Cache-control':'max-age=200'
+            'Cache-control':'max-age=200000'
         };
         sendFile(res, path,200,header);
     }
