@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTTP</title>
+    <script src="./jquery-1.10.2.js"></script>
+</head>
+<body>
+    <h1>this is a text html file</h1>
+    <a href="">get a cross origin</a>
+</body>
+<script>
+    $(function(){
+        normalAjax()
+    });
+    function normalAjax(){
+        $.ajax({
+            url:'http://localhost:1339/',
+            type:'DELETE',
+            data:'',
+            contentType:'applicant/json',
+            dataType:'json',
+            success:function(data){
+                $("h1").text(data.msg +"normal");
+            }
+        });
+    };
+    function jsonpAjax(){
+        $.ajax({
+            url:'http://localhost:1339/',
+            type:'GET',
+            data:'',
+            cache:true,
+            dataType:'jsonp',
+            success:function(data){
+                $("h1").text(data.msg +'jsonp');
+            }
+        });
+    }
+    function withCookieAjax(){
+        document.cookie = 'cookie2=this is a test';
+        $.ajax({
+            url:'http://localhost:1339/',
+            type:'GET',
+            data:'',
+            cache:true,
+            dataType:'json',
+            success:function(data){
+                $("h1").text(data.msg +'with cookie');
+            }
+        });
+    }
+</script>
+</html>
