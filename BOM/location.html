@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="#blue">蓝色</a>
+        </li>
+        <li>
+            <a href="#yellow">黄色</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="#red">红色</a>
+        </li>
+    </ul>
+    //实例化
+    <script>
+        console.log(location);
+        var url = document.createElement('a');
+        url.href = 'https://developer.mozilla.org/en-US/search?q=URL#search-results-close-container';
+        console.log(url.href); // https://developer.mozilla.org/en-US/search?q=URL#search-results-close-container
+        console.log(url.protocol); // https:
+        console.log(url.host); // developer.mozilla.org
+        console.log(url.hostname); // developer.mozilla.org
+        console.log(url.port); // (blank - https assumes port 443)
+        console.log(url.pathname); // /en-US/search
+        console.log(url.search); // ?q=URL
+        console.log(url.hash); // #search-results-close-container
+        console.log(url.origin); // https://developer.mozilla.org
+
+
+        //封装一个路由
+        function Router() {
+            this.routes = {};
+            window.addEventListener('load', this.resolve.bind(this), false); //监听 加载的时候
+            window.addEventListener('hashchange', this.resolve.bind(this), false); //监听hash变化
+        }
+        Router.prototype.route = function (path, callback) {
+            this.routes[path] = callback || function () {};
+        }
+        Router.prototype.resolve = function () {
+            this.curHash = location.hash.slice(1) || '/';
+            typeof this.routes[this.curHash] === 'function' && this.routes[this.curHash](); //当有回掉函数的时候执行函数
+        }
+        var router = new Router();
+        router.route('blue', function () {
+            document.body.style.background = 'lightblue';
+        });
+        router.route('yellow', function () {
+            document.body.style.background = 'yellow';
+        });
+        router.route('red', function () {
+            document.body.style.background = 'red';
+        });
+    </script>
+</body>
+
+</html>
