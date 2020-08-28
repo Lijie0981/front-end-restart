@@ -33,3 +33,4 @@ console.log(Cat.prototype.constructor == Cat); // true
 console.log(Cat.prototype.__proto__.constructor == Animal); //true
 console.log(cat2Func instanceof Cat); //true
 console.log(cat2Func instanceof Animal); //true
+
