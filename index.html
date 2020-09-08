@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="linear-gradient,animation,css3">
+    <title>Gradient-Animation</title>
+    <link type="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        #app {
+            align-items: center;
+            justify-content: center;
+        }
+        #style {
+            background-color: rgba(255, 255, 255, 0.6);
+            width: 40%;
+            height: 30%;
+            border-radius: 20px;
+            color: black;
+            outline: none;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <style style="display: block;" id="style" contenteditable>
+            #app {
+                background-image: linear-gradient(150deg, #ccc, #a0a, #0af, #ccc, #a0a, #0af);
+                background-size: 300vw 300vh;
+                background-position: 0 0;
+                width: 100%;
+                height: 100%;
+                animation: gradient 100s infinite;
+            }
+            @keyframes gradient {
+                0% {
+                }
+                50% {
+                    background-size: 150vw 150vh;
+                }
+                100% {
+                    background-position: 300vw 300vh;
+                }
+            }
+        </style>
+    </div>
+</body>
+</html>
