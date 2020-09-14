@@ -13,10 +13,10 @@
 
 Function.prototype.call2 = function (obj){
     var context = obj || window;
-    obj.fn = this;
+    context.fn = this;
     var args = [].slice.call(arguments,1);
-    var res = eval('obj.fn('+args+')');
-    delete obj.fn;
+    var res = eval('context.fn('+args+')');
+    delete context.fn;
     return res;
 }
 

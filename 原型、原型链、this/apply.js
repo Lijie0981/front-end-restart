@@ -13,10 +13,10 @@
 
 Function.prototype.apply2 = function (obj){
     var context = obj || window;
-    obj.fn = this;
+    context.fn = this;
     var args = arguments[1];
-    var res = eval('obj.fn('+args+')');
-    delete obj.fn;
+    var res = eval('context.fn('+args+')');
+    delete context.fn;
     return res;
 }
 
