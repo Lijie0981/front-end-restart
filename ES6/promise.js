@@ -62,7 +62,7 @@ class Promise2 {
           handle[1] = fail;
       }
       this.callbacks.push(handle);
-      return undefined;
+      return this;
   }
 
 }

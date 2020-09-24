@@ -17,6 +17,7 @@ function Cat (){ //组合继承
     this.type = 'cat2';
 }
 Cat.prototype = new Animal(); //实现 2 4
+Cat.prototype.constructor = Cat;
 Cat.prototype.sayType = function(){
     console.log(this.type);
 }

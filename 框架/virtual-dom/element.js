@@ -36,7 +36,7 @@ function Element(tagName, props, children) {
     }
     count++;
   });
-
+  // why this need count ?
   this.count = count;
 }
 

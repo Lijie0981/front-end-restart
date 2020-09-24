@@ -18,9 +18,6 @@ function Mvvm(options = {}) {
     // 数据劫持
     observe(data);
 }
-function observe(data){
-
-}
 // 创建一个Observe构造函数
 // 写数据劫持的主要逻辑
 function Observe(data) {
