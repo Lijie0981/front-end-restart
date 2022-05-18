@@ -19,6 +19,5 @@ Function.prototype.bind2 = function (context) {
 
     fNOP.prototype = this.prototype;
     fbound.prototype = new fNOP();
-    afdsasadasdasdas
     return fbound;
 }
